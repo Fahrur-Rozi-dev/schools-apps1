@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\StudentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,8 @@ use App\Http\Controllers\IndexController;
 Route::get('/',[IndexController::class, 'index']
 );
 
-Route::get('/data', function() {
-    return view('welcome');
-});
-Route::get('/index', function() {
-    return view('welcome');
-});
+Route::get('/students' , [StudentsController::class, 'Students']);
+Route::get('/insert-data' , [StudentsController::class, 'create']);
+Route::get('/class' , [StudentsController::class, 'class']);
+Route::post('/post-data', [StudentsController::class, 'store']);
 

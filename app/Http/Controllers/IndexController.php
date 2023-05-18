@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     function index () {
-        return view('welcome');
+        dd('dd');
+        return view('index');
     }
 }
