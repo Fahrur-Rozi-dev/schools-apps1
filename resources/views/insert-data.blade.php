@@ -12,7 +12,7 @@
         <div class="mb-3">
             <label for="" >PILIH GENDER</label>
             <select name="Gender" id="Gender" class="form-control" required>
-                <option value="">Select One</option>
+                <option value="" selected disabled>Select One</option>
                 <option value="L">Laki-Laki</option>
                 <option value="P">perempuan</option>
             </select>
