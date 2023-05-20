@@ -16,7 +16,7 @@
         <tr>
             <td>{{$data->Name}}</td>
             <td>{{$data->Gender}}</td>
-            <td>{{$data->Class_id}}</td>
+            <td>{{$data->Class->Name}}</td>
             <td>{{$data->NIS}}</td>
             <td>
                 <a href="/student-edit/{{$data->id}}">Edit</a>
@@ -25,4 +25,8 @@
         @endforeach
     </tbody>
 </table>
+
+<div class="my-5">
+    <a href="/insert-data" class="btn btn-primary">Tambah Data</a>
+</div>
 @endsection

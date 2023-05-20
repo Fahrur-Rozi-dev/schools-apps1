@@ -9,6 +9,6 @@ class extracurricularController extends Controller
 {
     public Function index () {
         $data = extracurricular::all();
-        dd($data);
+        return view('extracurricular' , ['data' => $data]);
     }
 }

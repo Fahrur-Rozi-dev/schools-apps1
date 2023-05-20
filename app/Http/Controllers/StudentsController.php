@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class StudentsController extends Controller
 {
     function Students() {
-        $data = Student::all();
+        $data = Student::with('Class')->get();
         return view('Students',['data' => $data]);
     }
     function create() {
@@ -18,11 +18,8 @@ class StudentsController extends Controller
     }
     function Edit(Request $request , $id) {
         $student = Student::findOrFail($id);
-        return view('student-edit', ['data' => $student]);
-    }
-    function class() {
-        $data = Classes::all();
-        return view('classes');
+        $class = Classes::where('id','!=' , $student->Class_id)->get(['id','Name']);
+        return view('student-edit', ['data' => $student , 'class' => $class]);
     }
     public function store(Request $request) {
         $student = Student::create($request->all());

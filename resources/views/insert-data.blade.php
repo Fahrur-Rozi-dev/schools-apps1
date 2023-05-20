@@ -25,7 +25,7 @@
         <div class="mb-3">
             <label for="class" >PILIH CLASS</label>
             <select name="Class_id" id="class" class="form-control" required>
-                <option value="">Select One</option>
+                <option value="" selected disabled>Select One</option>
                 @foreach ($class as $data)
                 <option value="{{$data->id}}">{{$data->Name}}</option>
                     

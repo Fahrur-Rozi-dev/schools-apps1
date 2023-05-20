@@ -37,7 +37,11 @@
         <div class="mb-3">
             <label for="Class">Class</label>
             <select name="Class_id" id="Class" class="form-control">
-            <option value="" selected disabled>DATA TIDAK BISA DI GANTI</option>
+            <option value="{{$data->Class->id}}" selected disabled>{{$data->Class->Name}}</option>
+                @foreach ($class as $class)
+                <option value="{{$class->id}}">{{$class->Name}}</option>
+                    
+                @endforeach
             </select>
         </div>
         <div class="mb-3">
