@@ -6,8 +6,6 @@
     <thead>
         <tr class="text-center">
             <th>ClassList</th>
-            <th>Daftar Siswa</th>
-            <th>Teachers</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -16,18 +14,9 @@
             
         <tr class="text-center">
             <td >{{$data->Name}}</td>
-            <td>
-                @foreach ($data->Student as $Name)
-                {{$Name->Name}} <br>
-                @endforeach
-                <td>
-                    {{$data->Teachers->Name}}
-                </td>
-            </td>
             <td class="">
-                <button class="btn btn-success">
-                    <a class="text-white" href="#">Detail</a>
-                </button>
+                    <a class="btn btn-danger btn-outline-light" href="#">edit</a>
+                    <a class="btn btn-success btn-outline-light" href="/class-detail/{{$data->id}}">Detail</a>
             </td>
             
         </tr>

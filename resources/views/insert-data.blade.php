@@ -17,10 +17,22 @@
                 <option value="P">perempuan</option>
             </select>
         </div>
-        <div>
-            <label for="Extra">Pilih Extracurriculars</label>
-            <select name="id" id="id"></select>
-            <option value=""></option>
+
+        {{-- @foreach ($extra as $extra)
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="{{$extra->id}}" id="extra">
+            <label class="form-check-label" for="flexCheckDefault">{{$extra->Name}}</label>
+        </div>
+        @endforeach --}}
+        <div class="mb-3">
+            <label for="extracurricular">Pilih Extracurriculars</label>
+                <select name="extra" id="extra" class="form-control selectpicker" >
+                    <option value="null" selected disabled>Pilih Extra</option>
+                    @foreach ($extra as $extra)
+                        <option  value="{{$extra->id}}">{{$extra->Name}}</option>
+                    @endforeach
+                </select>
+
         </div>
 
         <div class="mb-3">
@@ -37,6 +49,7 @@
                 @endforeach
             </select>
         </div>
+
         <div class="mb-3">
             <button class="btn btn-success" type="submit">Save</button>
         </div>

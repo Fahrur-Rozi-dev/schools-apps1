@@ -17,21 +17,23 @@ use App\Http\Controllers\extracurricularController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/',[IndexController::class, 'index']);
 
 Route::get('/extracurriculars/{id}',[extracurricularController::class, 'index']);
 
-Route::get('/',[IndexController::class, 'index']);
-
-Route::get('/student-edit/{id}' , [StudentsController::class, 'Edit']);
 
 Route::get('/students' , [StudentsController::class, 'Students']);
+Route::get('/student/{id}',[StudentsController::Class,'show']);
+Route::get('/student-edit/{id}' , [StudentsController::class, 'Edit']);
 Route::get('/insert-data' , [StudentsController::class, 'create']);
-Route::get('/class' , [ClassController::class, 'index']);
-Route::get('/teachers',[TeacherController::class,'index']);
-
-
 Route::post('/post-data', [StudentsController::class, 'store']);
-
-
 Route::put('/student-update/{id}' , [StudentsController::class, 'update']);
+
+
+
+Route::get('/class' , [ClassController::class, 'index']);
+Route::get('/class-detail/{id}',[ClassController::Class,'show']);
+
+
+Route::get('/teachers',[TeacherController::class,'index']);
 

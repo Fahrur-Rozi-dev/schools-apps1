@@ -28,6 +28,17 @@
                 @endif
             </select>
         </div>
+        <div class="mb-3">
+            <label for="extracurricular">Ganti Extracurriculars</label>
+                <select name="extra" id="extra" class="form-control" >
+                    <option value="" selected disabled>Ganti Extra</option>
+                    @foreach ($extra as $extra)
+                        <option value="{{$extra->id}}">{{$extra->Name}}</option>
+                        @endforeach
+                        <option value="">Keluar Dari Semua Extra</option>
+                </select>
+
+        </div>
 
         <div class="mb-3">
             <label for="NIS">NIS</label>

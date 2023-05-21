@@ -13,4 +13,11 @@ class ClassController extends Controller
 
         return view('classes' , ['data' => $data]);
     }
+    
+    function show($id) {
+        
+        $data = Classes::with(['Student','Teachers'])->findOrFail($id);
+        
+        return view('class-detail',['classDetail'=>$data]);
+    }
 }
