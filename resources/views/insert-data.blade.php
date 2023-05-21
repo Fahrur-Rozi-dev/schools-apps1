@@ -17,6 +17,11 @@
                 <option value="P">perempuan</option>
             </select>
         </div>
+        <div>
+            <label for="Extra">Pilih Extracurriculars</label>
+            <select name="id" id="id"></select>
+            <option value=""></option>
+        </div>
 
         <div class="mb-3">
             <label for="">MASUKKAN NIS</label>

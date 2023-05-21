@@ -8,6 +8,8 @@
             <th>Gender</th>
             <th>Class</th>
             <th>NIS</th>
+            <th>Extracurriculars</th>
+            <th>HomeRoom Teachers</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -18,6 +20,14 @@
             <td>{{$data->Gender}}</td>
             <td>{{$data->Class->Name}}</td>
             <td>{{$data->NIS}}</td>
+            <td>
+                @foreach ($data->extracurriculars as $extra)
+                {{$extra->Name}} 
+                 id = {{$extra->pivot->extracurricular_id}} <br>
+                @endforeach
+            </td>
+            <td>{{$data->Class->Teachers->Name}}</td>
+            
             <td>
                 <a href="/student-edit/{{$data->id}}">Edit</a>
             </td>

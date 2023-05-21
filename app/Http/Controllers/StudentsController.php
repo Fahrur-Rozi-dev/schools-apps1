@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class StudentsController extends Controller
 {
     function Students() {
-        $data = Student::with('Class')->get();
+        $data = Student::with(['Class.Teachers','extracurriculars.Students'])->get();
         return view('Students',['data' => $data]);
     }
     function create() {

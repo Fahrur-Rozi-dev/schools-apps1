@@ -9,7 +9,8 @@ class ClassController extends Controller
 {
     public function index () {
 
-        $data = Classes::with('Student')->get();
+        $data = Classes::with(['Student','Teachers'])->get();
+
         return view('classes' , ['data' => $data]);
     }
 }

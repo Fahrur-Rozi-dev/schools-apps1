@@ -7,6 +7,7 @@
         <tr class="text-center">
             <th>ClassList</th>
             <th>Daftar Siswa</th>
+            <th>Teachers</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -17,8 +18,11 @@
             <td >{{$data->Name}}</td>
             <td>
                 @foreach ($data->Student as $Name)
-                    {{$Name->Name}} <br>
+                {{$Name->Name}} <br>
                 @endforeach
+                <td>
+                    {{$data->Teachers->Name}}
+                </td>
             </td>
             <td class="">
                 <button class="btn btn-success">
