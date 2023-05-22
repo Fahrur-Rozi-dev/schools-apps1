@@ -12,4 +12,5 @@ class TeacherController extends Controller
 
         return view('teachers',['guru' => $data]);
     }
+    
 }
