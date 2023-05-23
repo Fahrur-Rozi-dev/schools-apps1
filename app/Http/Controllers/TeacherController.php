@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TeacherController extends Controller
 {
     public function index() {
-        $data = teacher::get();
+        $data = teacher::with('Class')->get();
 
         return view('teachers',['guru' => $data]);
     }

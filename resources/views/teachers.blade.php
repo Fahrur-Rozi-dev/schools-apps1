@@ -6,13 +6,19 @@
         <tr>
             <th>No</th>
             <th>Nama Guru</th>
+            <th>Class</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($guru as $data)
         <tr>
-            <th>{{$loop->iteration}}</th>
-            <th> {{$data->Name}}</th>
+            <td>{{$loop->iteration}}</td>
+            <td> {{$data->Name}}</td>
+            <td>
+            @foreach ($data->class as $guru)
+                {{$guru->Name}} <br>
+            @endforeach    
+            </td>
         </tr>
         @endforeach
     </tbody>

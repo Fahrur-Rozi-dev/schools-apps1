@@ -30,11 +30,16 @@ Route::post('/post-data', [StudentsController::class, 'store']);
 Route::get('/student-delete/{id}',[StudentsController::class,'delete']);
 Route::put('/student-update/{id}' , [StudentsController::class, 'update']);
 Route::delete('/student-destroy/{id}',[StudentsController::class,'destroy']);
+Route::get('/student-deleted-data',[StudentsController::class,'softdeletedata']);
+Route::get('/restore/{id}/data',[StudentsController::class,'restoreDataStudent']);
 
 
 
 Route::get('/class' , [ClassController::class, 'index']);
 Route::get('/class-detail/{id}',[ClassController::Class,'show']);
+Route::get('/class-add',[ClassController::class, 'create']);
+Route::post('/class-add',[ClassController::class,'store']);
+Route::delete('/class-delete/{id}',[ClassController::class,'delete']);
 
 
 Route::get('/teachers',[TeacherController::class,'index']);

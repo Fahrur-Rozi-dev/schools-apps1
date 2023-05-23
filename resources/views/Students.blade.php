@@ -1,8 +1,9 @@
 
 @extends('index')
 @section('content')
-<div class="my-5 container">
+<div class="my-5 container d-flex justify-content-between">
     <a href="/insert-data" class="btn btn-primary">Tambah Data</a>
+    <a href="/student-deleted-data" class="btn btn-primary">Restore Data</a>
 </div>
 
 @if (Session::has('status'))
@@ -22,20 +23,22 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($data as $data)
+        @foreach ($data as $V)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$data->Name}}</td>
-            <td>{{$data->Class->Name}}</td>
+            <td>{{$V->Name}}</td>
+            <td>{{$V->Class->Name}}</td>
             <td class="">
-                <a class="btn btn-danger btn-outline-light float-end mx-3" href="/student-delete/{{$data->id}}">Delete</a>
-                <a class="btn btn-warning text-dark btn-outline-light float-end mx-3" href="/student-edit/{{$data->id}}">Edit Data</a>
-                <a href="/student/{{$data->id}}" class="btn btn-success btn-outline-light float-end mx-3">Detail Siswa</a>
+                <a class="btn btn-danger btn-outline-light float-end mx-3" href="/student-delete/{{$V->id}}">Delete</a>
+                <a class="btn btn-warning text-dark btn-outline-light float-end mx-3" href="/student-edit/{{$V->id}}">Edit Data</a>
+                <a href="/student/{{$V->id}}" class="btn btn-success btn-outline-light float-end mx-3">Detail Siswa</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-
+<div class="container col-6">
+    {{$data->links()}}
+</div>
 
 @endsection

@@ -15,7 +15,7 @@
                 <td>{{$classDetail->Name}}</td>
                 <td>
                     @foreach ($classDetail->Student as $Name)
-                    -{{$loop->iteration}} {{$Name->Name}} <br> 
+                    {{$loop->iteration}} - {{$Name->Name}} <br> 
                     @endforeach
                 </td>
                 <td>{{$classDetail->Teachers->Name}}</td>

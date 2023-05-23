@@ -12,7 +12,7 @@ use App\Http\Requests\StudentCreateRequest;
 class StudentsController extends Controller
 {
     function Students() {
-        $data = Student::get();
+        $data = Student::paginate(10);
         return view('Students',['data' => $data]);
     }
     public function show($id) {
@@ -22,7 +22,7 @@ class StudentsController extends Controller
 
     }
     function create() {
-        $data = Classes::select('id', 'Name') ->get();
+        $data = Classes::select('id', 'Name')->get();
         $extra = extracurricular::get(['Name','id']);
         return view('insert-data', ['class' => $data, 'extra' =>$extra]);
     }                  //EDIT DATA FOR BLADE PHP !!
@@ -64,6 +64,18 @@ public function destroy($id) {
         Session::flash('massage','Data Telah Di Hapus!');
         return redirect('/students');
     }
+}
+public function softdeletedata(){
+    $data =Student::onlyTrashed()->get();
+    return view('student-deleted-data',['data'=>$data]);
+}
+public function restoreDataStudent($id){
+    $deletedStudent = Student::withTrashed()->where('id', $id)->restore();
+    if($deletedStudent){
+        Session::flash('status','success');
+        Session::flash('massage','Data Success Restored');
+    }
+    return redirect('/students');
 }
 
 
