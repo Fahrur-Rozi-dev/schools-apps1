@@ -11,8 +11,15 @@ use App\Http\Requests\StudentCreateRequest;
 
 class StudentsController extends Controller
 {
-    function Students() {
-        $data = Student::paginate(10);
+    function Students(Request $request) {
+    $Keyword = $request->Keyword;
+        $data = Student::where('Name','LIKE','%'.$Keyword.'%')
+        ->orWhere('NIS','LIKE','%'.$Keyword.'%')
+        //ambil data dari TABLE CLASS UNTUK SEARCH
+        ->orWhereHas('Class',function($query) use($Keyword){
+            $query->where('Name','LIKE','%'.$Keyword.'%');
+        })
+        ->paginate(10);
         return view('Students',['data' => $data]);
     }
     public function show($id) {

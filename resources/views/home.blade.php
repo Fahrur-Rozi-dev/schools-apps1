@@ -40,4 +40,9 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+<div>
+  <h2>selamat datang: {{Auth::user()->name}}, Role Anda Adalah:  {{Auth::user()->role->Name}} </h2>
+</div>
+
+  {{Auth::user()->role->Name}}
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\TeacherController;
@@ -18,11 +19,13 @@ use App\Http\Controllers\extracurricularController;
 |
 */
 Route::get('/',[IndexController::class, 'index']);
+Route::get('/login' , [AuthController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/logins',[AuthController::class, 'login']);
 
 Route::get('/extracurriculars/{id}',[extracurricularController::class, 'index']);
 
 
-Route::get('/students' , [StudentsController::class, 'Students']);
+Route::get('/students' , [StudentsController::class, 'Students'])->middleware('auth');
 Route::get('/student/{id}',[StudentsController::Class,'show']);
 Route::get('/student-edit/{id}' , [StudentsController::class, 'Edit']);
 Route::get('/insert-data' , [StudentsController::class, 'create']);

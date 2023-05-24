@@ -5,6 +5,12 @@
     <a href="/insert-data" class="btn btn-primary">Tambah Data</a>
     <a href="/student-deleted-data" class="btn btn-primary">Restore Data</a>
 </div>
+<div class="my-4">
+    <form method="GET" class="d-flex justify-content-between mt-3 col-6 mx-5" role="search">
+        <input name="Keyword" class="form-control me-2" type="search" placeholder="Search Data Siswa" aria-label="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+</div>
 
 @if (Session::has('status'))
 <div class="alert alert-success text-center" role="alert">
@@ -38,7 +44,7 @@
     </tbody>
 </table>
 <div class="container col-6">
-    {{$data->links()}}
+    {{$data->withQueryString()->links()}}
 </div>
 
 @endsection
