@@ -97,6 +97,7 @@
                 <button type="submit" class="btn btn-success btn-block mb-4">
                   LOGIN NOW
                 </button>
+                <a href="/exampleaccount" class="btn btn-info  btn-block mb-4 mx-5">Example Account</a>
               </form>
             </div>
           </div>

@@ -18,9 +18,10 @@ use App\Http\Controllers\extracurricularController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/',[IndexController::class, 'index']);
+Route::get('/',[IndexController::class, 'index'])->middleware('auth');
 Route::get('/login' , [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/logins',[AuthController::class, 'login']);
+Route::get('/logout' , [AuthController::class, 'logout'])->middleware('auth');
 
 Route::get('/extracurriculars/{id}',[extracurricularController::class, 'index']);
 
@@ -46,4 +47,15 @@ Route::delete('/class-delete/{id}',[ClassController::class,'delete']);
 
 
 Route::get('/teachers',[TeacherController::class,'index']);
+
+
+
+Route::get('/exampleaccount',function(){
+    $data = ["ADMIN ACCOUNT","Email:admin@gmail.com","Password:rahasia",
+    "User Account","",""
+    
+
+];
+    return $data;
+});
 
