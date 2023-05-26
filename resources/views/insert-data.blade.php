@@ -14,13 +14,19 @@
 @endif
 
 
-    <form action="/post-data" method="POST">
+    <form action="/post-data" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="">MASUKKAN NAMA</label>
             <input type="text" name="Name" placeholder="INPUT" class="form-control" id="name" required>
         </div>
 
+        <div class="mb-3">
+            <label for="photo">Pilih Foto Profile</label>
+            <div class="input-group">
+                <input type="file" name="photo" id="photo" class="form-control">
+            </div>
+        </div>
 
         <div class="mb-3">
             <label for="" >PILIH GENDER</label>

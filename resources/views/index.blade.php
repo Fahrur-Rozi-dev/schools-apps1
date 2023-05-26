@@ -56,7 +56,16 @@
                         <li>
                           <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="/logout">LogOut</a></li>
+                        <li>
+                          @if(Auth::check())
+                            <a class="dropdown-item" href="/logout">LogOut</a>
+                           @else 
+                            <a class="dropdown-item" href="/login">Login</a>
+                            <label for="">Belum Punya Akun? Daftar Gratis Sekarang</label>
+                            <a class="dropdown-item" href="/register">Register</a>
+                          
+                          @endif
+                        </li>
                       </ul>
                     </li>
                   </ul>

@@ -40,6 +40,14 @@ class StudentsController extends Controller
         return view('student-edit', ['data' => $student , 'class' => $class , 'extra'=>$extra]);
     }                      //CREATE DATA !!
     public function store(StudentCreateRequest $request) {
+        $nameFile = '';
+        if($request->file('photo')) {
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $nameFile = $request->Name.'-'.$request->NIS.'-'.now()->timestamp.'.'.$extension;
+            $photo = $request->file('photo')->storeAs('publicPhoto',$nameFile);
+        }
+
+        $request['image'] = $nameFile;
         $student = Student::create($request->all());
         $student->extracurriculars()->attach($request->extra);
         if ($student) {
@@ -57,7 +65,35 @@ class StudentsController extends Controller
             Session::flash('massage','Data Berhasil Di Update');
         }
         return redirect('/students');
-    }                  //DELETE DATA !!
+    }        
+    public function upload($id){
+        $data = Student::findOrFail($id);
+        return view('upload-photo',['data'=>$data]);
+
+    }
+    public function uploadPhoto(Request $request, $id) {
+        $nameFile = '';
+        if($request->file('photo')) {
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $nameFile = $request->Name.'-'.$request->NIS.'-'.now()->timestamp.'.'.$extension;
+            $photo = $request->file('photo')->storeAs('publicPhoto',$nameFile);
+            $data = $request['image'] = $nameFile;
+            $student = Student::findOrFail($id)->update($request->all());
+            Session::flash('status','success');
+            Session::flash('massage','Berhasil Mengupload Foto Profile');
+            return redirect('/students');
+        } else {
+            Session::flash('status','failed');
+            Session::flash('massage','Gagal Mengupload Foto Profile');
+            return redirect('/students');
+        }
+
+
+        
+    }
+    
+    
+                        //DELETE DATA !!
 public function delete($id) {
     $data = Student::findOrFail($id);
     return view('confirm-delete',['delete'=>$data]);

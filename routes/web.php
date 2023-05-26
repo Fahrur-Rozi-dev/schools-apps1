@@ -18,8 +18,10 @@ use App\Http\Controllers\extracurricularController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/',[IndexController::class, 'index'])->middleware('auth');
+Route::get('/',[IndexController::class, 'index'])->middleware(['auth']);
 Route::get('/login' , [AuthController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/register' , [AuthController::class, 'register']);
+Route::post('/register' , [AuthController::class, 'store']);
 Route::post('/logins',[AuthController::class, 'login']);
 Route::get('/logout' , [AuthController::class, 'logout'])->middleware('auth');
 
@@ -36,10 +38,12 @@ Route::put('/student-update/{id}' , [StudentsController::class, 'update']);
 Route::delete('/student-destroy/{id}',[StudentsController::class,'destroy']);
 Route::get('/student-deleted-data',[StudentsController::class,'softdeletedata']);
 Route::get('/restore/{id}/data',[StudentsController::class,'restoreDataStudent']);
+Route::get('/upload-photo/{id}',[StudentsController::class,'upload']);
+Route::post('/upload-photo/{id}',[StudentsController::class,'uploadPhoto']);
 
 
 
-Route::get('/class' , [ClassController::class, 'index']);
+Route::get('/class' , [ClassController::class, 'index'])->middleware(['auth','Admin']);
 Route::get('/class-detail/{id}',[ClassController::Class,'show']);
 Route::get('/class-add',[ClassController::class, 'create']);
 Route::post('/class-add',[ClassController::class,'store']);

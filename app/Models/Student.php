@@ -16,6 +16,7 @@ class Student extends Model
         'Gender',
         'NIS',
         'Class_id',
+        'image',
     ];
     protected $table = 'students';
 
