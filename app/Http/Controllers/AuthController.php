@@ -16,6 +16,11 @@ class AuthController extends Controller
     public function register(){
         return view('register');
     }
+    public function emailUser(){
+        $data = User::with('role')->get();
+
+        return view('email-user',['user'=>$data]);
+    }
     public function store(Request $request){
         $validate = $request->validate([
             'email'=>'unique:users',

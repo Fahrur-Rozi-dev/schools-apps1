@@ -48,7 +48,7 @@
                     </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        About Me!
+                        More Options!
                       </a>
                       <ul class="dropdown-menu dropdown-menu-dark">
                         <li><a class="dropdown-item" href="#">Action</a></li>
@@ -67,9 +67,29 @@
                           @endif
                         </li>
                       </ul>
-                    </li>
-                  </ul>
 
+                @if (Auth::user()->role_id != 1 && Auth::user()->role_id != 2)
+                      
+                @else
+
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Admin Center
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="/email-user">Email User</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                          <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/register">Register</a>
+                        </li>
+                      </ul>
+                    </li>
+                    @endif
+
+                  </ul>
                 </div>
               </div>
             </div>

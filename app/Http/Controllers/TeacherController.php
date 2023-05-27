@@ -18,7 +18,7 @@ class TeacherController extends Controller
     }
 
     public function store(Request $request){
-         $validate = $request->validate([
+        $validate = $request->validate([
             'Name' => 'unique:teachers'
         ]);
         $data = teacher::create($request->all());

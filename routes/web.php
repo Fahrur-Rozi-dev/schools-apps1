@@ -23,6 +23,7 @@ Route::get('/login' , [AuthController::class, 'index'])->name('login')->middlewa
 Route::get('/register' , [AuthController::class, 'register']);
 Route::post('/register' , [AuthController::class, 'store']);
 Route::post('/logins',[AuthController::class, 'login']);
+Route::get('/email-user',[AuthController::class, 'emailUser'])->middleware('Admin','auth');
 Route::get('/logout' , [AuthController::class, 'logout'])->middleware('auth');
 
 Route::get('/extracurriculars/{id}',[extracurricularController::class, 'index']);
