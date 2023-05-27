@@ -11,7 +11,9 @@ class teacher extends Model
     use HasFactory;
     protected $table = 'teachers';
 
-
+protected $fillable = [
+    'Name',
+];
 
 public function Class()
 {

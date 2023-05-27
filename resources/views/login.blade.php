@@ -53,10 +53,13 @@
                     <div class="pt-1 mb-4">
                       <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                     </div>
+                    <div class="pt-1 mb-4">
+                      <a href="/exampleaccount" class="btn btn-info">Example Account</a>
+                    </div>
   
                     <a class="small text-muted" href="#!">Forgot password?</a>
                     <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/register"
-                        style="color: #393f81;">Register here</a></p>
+                        style="color: #393f81;" class="btn btn-success">Register here</a></p>
                     <a href="#!" class="small text-muted">Terms of use.</a>
                     <a href="#!" class="small text-muted">Privacy policy</a>
                   </form>

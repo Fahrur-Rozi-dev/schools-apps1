@@ -12,5 +12,16 @@ class TeacherController extends Controller
 
         return view('teachers',['guru' => $data]);
     }
-    
+    public function create() {
+
+        return view('teachers-add');
+    }
+
+    public function store(Request $request){
+         $validate = $request->validate([
+            'Name' => 'unique:teachers'
+        ]);
+        $data = teacher::create($request->all());
+        return redirect('/teachers');
+    }
 }

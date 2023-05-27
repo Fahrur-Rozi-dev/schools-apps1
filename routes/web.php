@@ -51,12 +51,14 @@ Route::delete('/class-delete/{id}',[ClassController::class,'delete']);
 
 
 Route::get('/teachers',[TeacherController::class,'index']);
+Route::get('/teachers-add', [TeacherController::class,'create']);
+Route::post('/add-teacher', [TeacherController::class,'store']);
 
 
 
 Route::get('/exampleaccount',function(){
     $data = ["ADMIN ACCOUNT","Email:admin@gmail.com","Password:rahasia",
-    "User Account","",""
+    "User Account","user@gmail.com","rahasia"
     
 
 ];

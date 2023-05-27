@@ -23,8 +23,9 @@
         @endforeach
     </tbody>
 </table>
-
-   
+<div class="">
+    <a href="/teachers-add" class="btn btn-success">Tambah Guru</a>
+</div>
 
 
 
